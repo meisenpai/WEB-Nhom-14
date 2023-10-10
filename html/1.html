@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuyển trang</title>
+  <!-- Sử dụng Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="page" id="page1">
+      <div class="row">
+          <div class="col-sm-6 col-md-3">
+              a
+          </div>
+          <div class="col-sm-6 col-md-3">
+              b
+          </div>
+          <div class="col-sm-6 col-md-3">
+             b
+          </div>
+          <div class="col-sm-6 col-md-3">
+              d
+          </div>
+      </div>
+  </div>
+  
+    <div id="page2" class="page">
+      <h1>Trang 2</h1>
+      <p>Nội dung trang 2 ở đây.</p>
+    </div>
+    <div id="page3" class="page">
+      <h1>Trang 3</h1>
+      <p>Nội dung trang 3 ở đây.</p>
+    </div>
+    
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous" onclick="previousPage()">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#" onclick="goToPage(1)">1</a></li>
+        <li class="page-item"><a class="page-link" href="#" onclick="goToPage(2)">2</a></li>
+        <li class="page-item"><a class="page-link" href="#" onclick="goToPage(3)">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Sử dụng Bootstrap JS và jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    var currentPage = 1;
+    function goToPage(pageNumber) {
+      document.getElementById('page' + currentPage).style.display = 'none';
+      document.getElementById('page' + pageNumber).style.display = 'block';
+      currentPage = pageNumber;
+    }
+    function previousPage() {
+      if (currentPage > 1) {
+        goToPage(currentPage - 1);
+      }
+    }
+    function nextPage() {
+      if (currentPage < 3) {
+        goToPage(currentPage + 1);
+      }
+    }
+  </script>
+</body>
+</html>

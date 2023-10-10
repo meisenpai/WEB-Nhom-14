@@ -1,0 +1,51 @@
+
+.custom-card {
+    transition: transform 0.3s;
+    /* Chỉnh thời gian transition */
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(3, 3, 3, 0.3);
+}
+
+.custom-card:hover {
+    transform: translateY(-15px);
+    /* Khi rê chuột vào, thẻ sẽ nhảy lên 10px */
+}
+
+.custom-card-1 {
+    transition: transform 0.3s;
+    /* Chỉnh thời gian transition */
+
+}
+
+.custom-card-1:hover {
+    transform: translateY(-10px);
+    /* Khi rê chuột vào, thẻ sẽ nhảy lên 10px */
+    box-shadow: 0 4px 8px rgba(3, 3, 3, 0.3);
+}
+.button-news{
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+.button-news:hover{
+    box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
+}
+.button-cart{
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+.button-cart:hover{
+    box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
+}
+.button-login{
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+.button-login:hover{
+    box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
+}
