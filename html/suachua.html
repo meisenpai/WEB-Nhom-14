@@ -4,36 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laptop</title>
+    <title>demo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         .btn-outline-light {
-
-            /* Ẩn nút icon menu trên màn hình nhỏ */
             @media (max-width: 992px) {
                 display: none;
             }
         }
-
-        #page1 {
-            display: flex;
-        }
-
-        #page2,
-        #page3 {
-            display: none;
-        }
     </style>
-
+    
 </head>
 
 <body>
     <div class="container bg-light">
         <header>
-
+           
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <a href="index.html" class="nav-link me-4">
@@ -47,8 +36,8 @@
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
-
+                    
+                    
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <form class="d-flex me-4 w-50">
                             <input class="form-control rounded-end-0" type="search" placeholder="Search"
@@ -58,24 +47,23 @@
                             </button>
                         </form>
                         <ul class="navbar-nav">
-                            <li class="nav-item me-5">
+                            <li class="nav-item me-5"> 
                                 <button type="button" class="button-news">
                                     <a href="#" class="nav-link fw-bold text-white">Tin Tức</a>
                                 </button>
                             </li>
                             <li class="nav-item me-5">
                                 <button type="button" class="button-cart">
-                                    <a href="#" class="nav-link fw-bold text-white"> Giỏ Hàng <i
-                                            class="bi bi-cart3"></i></a>
+                                    <a href="#" class="nav-link fw-bold text-white"> Giỏ Hàng <i class="bi bi-cart3"></i></a>
                                 </button>
                             </li>
                             <li class="nav-item">
                                 <button type="button" class="button-login">
                                     <a href="#" class="nav-link fw-bold" data-bs-toggle="modal"
-                                        data-bs-target="#loginModal">
-                                        Đăng Nhập <i class="bi bi-box-arrow-in-right"></i></a>
+                                    data-bs-target="#loginModal">
+                                    Đăng Nhập <i class="bi bi-box-arrow-in-right"></i></a>
                                 </button>
-
+                                
                             </li>
                         </ul>
                     </div>
@@ -192,42 +180,43 @@
                         </button>
                     </form>
                     <ul class="navbar-nav">
-                        <li class="nav-item me-5">
-
-                            <a href="#" class="nav-link fw-bold">Tin tức</a>
-
+                        <li class="nav-item"> 
+                            <button type="button" class="button-news">
+                                <a href="#" class="nav-link fw-bold text-white">Tin Tức</a>
+                            </button>
                         </li>
-                        <li class="nav-item me-5">
-
-                            <a href="#" class="nav-link fw-bold"> Giỏ hàng <i class="bi bi-cart3"></i></a>
-
+                        <li class="nav-item mt-2">
+                            <button type="button" class="button-cart">
+                                <a href="#" class="nav-link fw-bold text-white"> Giỏ Hàng <i class="bi bi-cart3"></i></a>
+                            </button>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">
-                                Đăng nhập <i class="bi bi-box-arrow-in-right"></i></a>
+                        <li class="nav-item mt-2">
+                            <button type="button" class="button-login">
+                                <a href="#" class="nav-link fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                Đăng Nhập <i class="bi bi-box-arrow-in-right"></i></a>
+                            </button>
+                            
                         </li>
                     </ul>
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center mt-5">
                         <div class="col-2">
-                            <a href="https://www.facebook.com/atnuanh.76" class="text-primary" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Follow on Facebook">
+                            <a href="https://www.facebook.com/atnuanh.76" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Follow on Facebook">
                                 <i class="bi bi-facebook fs-4"></i>
                             </a>
                         </div>
                         <div class="col-2">
-                            <a href="https://youtube.com/@atnuanh_76" class="text-danger" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Subscribe on YouTube">
+                            <a href="https://youtube.com/@atnuanh_76" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Subscribe on YouTube">
                                 <i class="bi bi-youtube fs-4"></i>
                             </a>
                         </div>
                         <div class="col-2">
-                            <a href="mailto:1tuananhtran1@gmail.com" class="text-danger" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Send an Email">
+                            <a href="mailto:1tuananhtran1@gmail.com" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Send an Email">
                                 <i class="bi bi-envelope-at fs-4"></i>
                             </a>
                         </div>
                     </div>
-
+                    
                 </div>
                 <div class="row mt-5">
                     <div class="col-12">
@@ -314,165 +303,77 @@
                     </button>
                 </div>
             </div>
-           
             <hr style="border: 2px solid black;">
+
+    <div class="row">
+        <div class="col-md-4 custom">
+        <h4>Chọn hãng</h4>
+        <select class="form-select">
+            <option value="apple">Apple</option>
+            <option value="asus">Asus</option>
+            <option value="dell">Dell</option>
+            <option value="hp">HP</option>
+            <option value="lenovo">Lenovo</option>
+            <option value="msi">MSI</option>
+            
+        </select>
+        </div>
+        <div class="col-md-4 custom">
+        <h4>Chọn dòng máy</h4>
+        <select class="form-select">
+            <option value="macbook">MacBook</option>
+            <option value="asus-rog">ASUS ROG</option>
+            <option value="asus-vivobook">ASUS VivoBook</option>
+            <option value="dell-xps">Dell XPS</option>
+            <option value="dell-inspiron">Dell Inspiron</option>
+            <option value="hp-pavilion">HP Pavilion</option>
+            <option value="hp-omen">HP Omen</option>
+            <option value="lenovo-thinkpad">Lenovo ThinkPad</option>
+            <option value="lenovo-legion">Lenovo Legion</option>
+            <option value="msi-gf65">MSI GF65</option>
+            <option value="msi-ge66">MSI GE66</option>
+
+        </select>
+        </div>
+        <div class="col-md-4 custom">
+        <h4>Chọn lỗi chi tiết</h4>
+        <select class="form-select">
+            <option value="màn hình">Màn hình</option>
+            <option value="pin">Pin</option>
+            <option value="bàn phím">Bàn phím</option>
+            <option value="cổng kết nối">Cổng kết nối</option>
+            <option value="loa">Loa</option>
+            <option value="ổ cứng">Ổ cứng</option>
+            <option value="cpu">CPU</option>
+            <option value="ram">RAM</option>
+            <option value="mainboard">Mainboard</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 button-custom">
+        <button class="btn btn-danger">Xem báo giá</button>
+        </div>
+    </div>
+
+    <form action="/check-progress" method="post">
+        <label for="warranty-number" class="form-label"><b>Nhập mã phiếu bảo hành</b></label>
             <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h3 class="fw-bold">MINI PC</h3>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="warranty-number" name="warranty-number" required>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-danger">Kiểm tra</button>
                 </div>
             </div>
-            <hr style="border: 2px solid black;">
-            <div class="page" id="page1">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc1.webp" alt="" width="100%"
-                                    height="250px">
-                                <h5>PC GVN PHANTOM i4060Ti</h5>
-                                <p style="color: red; font-size:large">
-                                    <b>33.890.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc2.webp" alt="" width="100%"
-                                    height="250px">
-                                <h5>PC GVN VIPER a4060</h5>
-                                <p style="color: red; font-size:large">
-                                    <b>25.990.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc3.webp" alt="" width="100%"
-                                    height="250px">
-                                <h5>PC GVN VIPER i4060</h5>
-                                <p style="color: red; font-size:large">
-                                    <b>23.990.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc4.webp" alt="" width="100%"
-                                    height="250px">
-                                <h5>PC GVN VIPER Plus a3050</h5>
-                                <p style="color: red; font-size:large">
-                                    <b>18.990.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc5.webp" alt="" width="100%"
-                                    height="250px">
-                                <h5>PC GVN MINION i1650</h5>
-                                <p style="color: red; font-size:large">
-                                    <b>9.790.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc6.webp" alt="" width="100%"
-                                    height="250px">
-                                <h5>PC GVN VIPER a1660S</h5>
-                                <p style="color: red; font-size:large">
-                                    <b>12.990.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc7.webp" alt="" width="100%"height="250px">
-                                <h5>PC GVN PHANTOM i4070
-                                </h5>
-                                <p style="color: red; font-size:large">
-                                    <b>58.990.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card custom-card">
-                            <div class="card-body">
-                                <img src="../img/pc8.webp" alt=""
-                                    width="100%" height="250px">
-                                <h5>PC GVN VIPER Plus i4070</h5>
-                                <p style="color: red; font-size:large">
-                                    <b>46.990.000VNĐ</b>
-                                </p>
-                                <div class="button-container">
-                                    <button type="button" class="btn btn-primary">Order</button>
-                                    <button type="button" class="btn btn-light">Later...</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center mt-4">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item" id="prevPage">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#" onclick="showPage(1)">1</a></li>
-                        <li class="page-item" id="nextPage">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+      </form>
+    
+
+
+    <hr style="border: 2px solid black;">      
+            
         </section>
-        <hr style="border: 2px solid black;">
     </div>
     <footer class="bg-dark text-white p-4">
         <div class="container">
@@ -571,45 +472,10 @@
         </div>
     </footer>
     <script>
-        //tooltips
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
+          return new bootstrap.Tooltip(tooltipTriggerEl)
         })
-        //các nút chuyển trang
-        var currentPage = 1;
-
-        // Khi trang được tải, đặt trang đầu tiên là trang active
-        window.onload = function () {
-            showPage(currentPage);
-        };
-
-        function showPage(pageNumber) {
-            document.getElementById('page' + currentPage).style.display = 'none';
-            document.getElementById('page' + pageNumber).style.display = 'block';
-
-            // Thay đổi trang active
-            document.querySelector('.pagination .page-item.active').classList.remove('active');
-            document.querySelector('.pagination .page-item:nth-child(' + (pageNumber + 1) + ')').classList.add('active');
-
-            currentPage = pageNumber;
-            document.getElementById('prevPage').style.display = (currentPage === 1) ? 'none' : 'block';
-            document.getElementById('nextPage').style.display = (currentPage === 3) ? 'none' : 'block';
-        }
-
-        document.getElementById('nextPage').addEventListener('click', function () {
-            if (currentPage < 3) {
-                showPage(currentPage + 1);
-            }
-        });
-
-        document.getElementById('prevPage').addEventListener('click', function () {
-            if (currentPage > 1) {
-                showPage(currentPage - 1);
-            }
-        });
-
-
     </script>
 </body>
 
