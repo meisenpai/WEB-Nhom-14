@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thongtin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <header class="head">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a href="index.html" class="nav-link me-4">
+                        <h2 class="fw-bold">LAPTOPWORLD</h2>
+                    </a>
+                    <button class="btn btn-outline-light me-4" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <form class="d-flex me-4 w-50">
+                            <input class="form-control rounded-end-0" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-light rounded-start-0" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item me-5">
+                                <button type="button" class="button-news">
+                                    <a href="#" class="nav-link fw-bold text-white">Tin Tức</a>
+                                </button>
+                            </li>
+                            <li class="nav-item me-5">
+                                <button type="button" class="button-cart">
+                                    <a href="#" class="nav-link fw-bold text-white"> Giỏ Hàng <i
+                                            class="bi bi-cart3"></i></a>
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="button-login">
+                                    <a href="#" class="nav-link fw-bold" data-bs-toggle="modal"
+                                        data-bs-target="#loginModal">
+                                        Đăng Nhập <i class="bi bi-box-arrow-in-right"></i></a>
+                                </button>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Login Modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Login Form -->
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="loginUsername" class="form-label">Tên đăng nhập</label>
+                                        <input type="text" class="form-control" id="loginUsername" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="loginPassword" class="form-label">Mật khẩu</label>
+                                        <input type="password" class="form-control" id="loginPassword" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a href="#">Quên mật khẩu?</a>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                                </form>
+                                <hr>
+                                <div class="mb-3">
+                                    <button type="button" class="btn btn-primary" style="width: 49%;">Đăng nhập bằng
+                                        Facebook</button>
+                                    <button type="button" class="btn btn-danger" style="width: 49%;">Đăng nhập bằng
+                                        Google</button>
+                                </div>
+                                <p>Nếu bạn chưa có tài khoản, hãy <a href="#" data-bs-dismiss="modal"
+                                        data-bs-toggle="modal" data-bs-target="#registerModal">đăng ký</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Modal -->
+                <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="registerModalLabel">Đăng ký</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Register Form -->
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="registerUsername" class="form-label">Họ tên</label>
+                                        <input type="text" class="form-control" id="registerFirstName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerMail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="registerMail" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerPhone" class="form-label">Số điện thoại</label>
+                                        <input type="tel" class="form-control" id="registerPhone" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerUsername" class="form-label">Tên đăng nhập</label>
+                                        <input type="text" class="form-control" id="registerUsername" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="registerPassword" class="form-label">Mật khẩu</label>
+                                        <input type="password" class="form-control" id="registerPassword" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerrePassword" class="form-label">Xác nhận mật khẩu</label>
+                                        <input type="password" class="form-control" id="registerrePassword" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="agreeCheck"
+                                                id="agreeCheck" value="option1" required>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Tôi đã đọc và chấp nhận Điều khoản và Chính sách bảo mật
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Đăng ký</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="offcanvas offcanvas-start w-25" data-bs-scroll="true" tabindex="-1"
+                id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title fw-bold" id="offcanvasWithBothOptionsLabel">
+                        <a href="index.html" class="nav-link">LAPTOPWORLD</a>
+                    </h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <form class="d-flex me-5 mb-2 w-auto">
+                        <input class="form-control rounded-end-0" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-light rounded-start-0" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item me-5">
+
+                            <a href="#" class="nav-link fw-bold">Tin tức</a>
+
+                        </li>
+                        <li class="nav-item me-5">
+
+                            <a href="#" class="nav-link fw-bold"> Giỏ hàng <i class="bi bi-cart3"></i></a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                Đăng nhập <i class="bi bi-box-arrow-in-right"></i></a>
+                        </li>
+                    </ul>
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <a href="https://www.facebook.com/atnuanh.76" class="text-primary" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Follow on Facebook">
+                                <i class="bi bi-facebook fs-4"></i>
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a href="https://youtube.com/@atnuanh_76" class="text-danger" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Subscribe on YouTube">
+                                <i class="bi bi-youtube fs-4"></i>
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a href="mailto:1tuananhtran1@gmail.com" class="text-danger" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Send an Email">
+                                <i class="bi bi-envelope-at fs-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <p class="text-danger"><i class="bi bi-c-circle"></i> Copyright belongs to group 14</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <article class="article">
+                <div class="row">
+                    <div class="col-sm-6 text-white">
+                        <div class="card custom-card">
+                            <img src="../img/dell-inspiron-5425-laptoppro-2-768x768.webp" alt="" style="height: 600px;" width="600px">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mt-5">
+                        <h2>Dell Precision 5470 i7 12800H / 32GB / 512GB / FHD+ / Quadro RTX A1000</h2>
+                        <h5 style="color: red;">27.500.000VNĐ</h5>
+                        <div class="card bg-light text-dark" mt-5>
+                            <div class="card-body" >
+                                <ul mt-3>
+                                    <li><b>CPU :</b> i7 12800H 4.8 Ghz, 24MB Cache (14C/20T)</li>
+                                    <li><b>RAM :</b>32GB LPDDR5 5200MHz (Onboard)</li>
+                                    <li><b>SSD :</b>512 GB NVMe PCIe Gen 4×4 (1 Slot)</li>
+                                    <li><b>LCD :</b>14″ FHD+ (1920*1200) 100% DCI-P3</li>
+                                    <li><b>VGA :</b>NVIDIA Quadro RTX A1000 4GB GDDR6</li>
+                                    <li><b>Tình trạng : </b>Used 97-98% | Bảo hành 6 tháng</li>
+                                    <li>Giá sp chưa bao gồm thuế VAT (liên hệ nếu cần)</li>
+                                    <li>Giá 25.000.000 đ nếu bạn chỉ lấy bảo hành 1 tháng!</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th><h4>Ưu Đãi</h4></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Tặng balo và túi chống shock (tùy sản phẩm)</td>
+                              </tr>
+                              <tr>
+                                <td>Vệ sinh, bảo trì miễn phí trọn đời máy</td>
+                              </tr>
+                              <tr>
+                                <td>Cài đặt, hỗ trợ phần mềm từ xa</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="row mb-3">
+                            <div class="col-md-12"><button type="button" class="btn btn-success btn-lg">Thêm vào giỏ hàng</button></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary btn-block btn-lg" data-bs-toggle="popover" title="Nhấn vào nút này để mua hàng trực tiếp" data-bs-content="">Mua Hàng</button>
+                                  </div>
+                              </div>
+                              <div class="col-md-6  ">
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary btn-block btn-lg" data-bs-toggle="popover" title="Nhấn vào nút này để mua trả góp" data-bs-content="">Trả Góp</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <table class="table table-hover">
+                            <tbody style="font-size: small;">
+                              <tr>
+                                <td>Mã: PRECISION-5470-i7-FHD-A1000</td>
+                              </tr>
+                              <tr>
+                                <td>Danh mục: Dell, Precision</td>
+                              </tr>
+                              <tr>
+                                <td>Từ khóa: 3D, Workstation</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                  </div>
+            </article>
+            <hr>
+            <aside>
+                <h4 >Mô tả</h4>
+                <div class="noidung">
+                    <h2>
+                        Dell Precision 5470 – Hiệu Suất Cao Với Thiết Kế Mỏng Nhẹ
+                    </h2>
+                    <p>Dell Precision 5470 là một trong những chiếc laptop hàng đầu của Dell, đem đến hiệu suất ổn định và thiết kế di động trong một thiết bị duyên dáng. Dưới đây là những điểm nổi bật của Dell Precision 5470:</p>
+                    <h2>1. Hiệu Suất Vượt Trội</h2>
+                    <p>
+                        Với bộ vi xử lý mạnh mẽ và tùy chọn RAM cao cấp, Dell Precision 5470 giúp bạn xử lý mọi tác vụ đòi hỏi hiệu suất một cách mượt mà. Đây là công cụ lý tưởng cho việc xử lý đồ họa, làm video, và các ứng dụng kỹ thuật đòi hỏi nhiều tài nguyên.
+                    </p>
+                    <h2>
+                        2. Thiết Kế Mỏng Nhẹ và Di Động
+                    </h2>
+                    <p>
+                        Dell Precision 5470 có thiết kế mỏng nhẹ, giúp bạn dễ dàng mang theo máy mọi nơi. Điều này rất quan trọng cho những người thường xuyên di chuyển và làm việc tại nhiều địa điểm khác nhau.
+                    </p>
+                    <h2>
+                        3. Màn Hình Chất Lượng Cao
+                    </h2>
+                    <p>
+                        Máy tính này đi kèm với màn hình chất lượng cao, hiển thị hình ảnh và nội dung với độ sắc nét và chân thực. Điều này làm cho nó trở thành công cụ tốt cho việc chỉnh sửa hình ảnh, video và làm việc với các ứng dụng đồ họa.
+                    </p>
+                    <h2>
+                        4. Bàn Phím Tiện Lợi và Đèn Nền
+                    </h2>
+                    <p>
+                        Bàn phím của Dell Precision 5470 được thiết kế thoải mái và có đèn nền, giúp bạn làm việc hiệu quả trong điều kiện ánh sáng yếu hoặc trong bóng tối.
+                    </p>
+                    <h2>
+                        5. Tích Hợp Bảo Mật Cao Cấp
+                    </h2>
+                    <p>
+                        Laptop này được trang bị các tính năng bảo mật như cảm biến vân tay và TPM (Trusted Platform Module) để đảm bảo an toàn cho dữ liệu và thông tin cá nhân của bạn.
+                    </p>
+                    <h2>
+                        Kết Luận
+                    </h2>
+                    <p>
+                        Dell Precision 5470 là một sự lựa chọn xuất sắc cho những người dùng đòi hỏi hiệu suất và di động. Với thiết kế mỏng nhẹ, hiệu suất ổn định và các tính năng bảo mật hàng đầu, nó là một công cụ đáng tin cậy cho công việc sáng tạo và doanh nghiệp.
+                    </p>
+                </div>
+                <div class="danhgia mt-5">
+                    <h5>Đánh giá Dell Precision 5470 i7 12800H / 32GB / 512GB / FHD+ / Quadro RTX A1000</h5>
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                    Đánh Giá Ngay
+                  </button>
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Nhập Bài Đánh Giá</h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" placeholder=" Viết bài đánh giá.....">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                  
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+        <br>
+        <footer class="bg-dark text-white p-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>VĂN PHÒNG GIAO DỊCH</h5>
+                        <ul class="list-menu ps-3">
+                            <li class="li_menu">
+    
+                                <address>
+                                    Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.Hồ Chí Minh
+                                </address>
+    
+                            </li>
+                            <li class="li_menu">
+                                Thời gian làm việc: <br>
+                                - Từ thứ 2 đến chủ nhật: 0h-24h
+                                <br>
+                                không có ngày nghỉ
+                            </li>
+    
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>VỀ CHÚNG TÔI</h5>
+    
+                        <p style="text-align: justify;">Chào mừng bạn đến với LaptopWorld - Nơi bạn tìm thấy sự kết hợp hoàn
+                            hảo giữa công nghệ và
+                            phong cách!</p>
+                        <p style="text-align: justify;">Sứ mệnh của chúng tôi là mang đến cho bạn những sản phẩm và
+                            dịch vụ tốt nhất, đáp ứng
+                            mọi nhu cầu về công nghệ thông tin của bạn và nâng cao hiệu suất và phong cách sống.
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>CHÍNH SÁCH BÁN HÀNG</h5>
+                        <ul class="nav-item ps-3">
+                            <li>Bảo mật và thanh toán</li>
+                            <li>Vận chuyển và giao hàng</li>
+                            <li>Hỗ trợ khách hàng</li>
+                            <li>Bảo trì và sửa chữa sau khi hết bảo hành</li>
+                            <li>Đổi/trả hàng</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>THEO DÕI CHÚNG TÔI</h5>
+                        <ul class="nav-item ps-1">
+                            <li class="nav-link">
+                                <a href="https://www.facebook.com/atnuanh.76/" class="nav-link">
+                                    <i class="bi bi-facebook"></i> Trần Anh Tuấn
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="https://www.facebook.com/duykhanh.chau.35" class="nav-link">
+                                    <i class="bi bi-facebook"></i> Châu Duy Khánh
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="https://www.facebook.com/profile.php?id=100024524241191" class="nav-link">
+                                    <i class="bi bi-facebook"></i> Trường Vũ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4>Thành viên nhóm</h4>
+                        <p>Châu Duy Khánh_21069661</p>
+                        <p>Trần Anh Tuấn_21069981</p>
+                        <p>Trần Lê Trường Vũ_21069701</p>
+                    </div>
+                    <div class="col-md-9">
+                        <h4>Nhận tin khuyến mãi</h4>
+                        <form class="d-flex me-5 w-100">
+                            <input class="form-control rounded-end-0" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-light rounded-start-0" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="cod-md-6">
+                        Bản quyền thuộc nhóm 14
+                        <i class="fa-regular fa-copyright"></i>
+                    </div>
+    
+                    <div class="cod-md-6">
+                        Trang chủ
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
