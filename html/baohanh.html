@@ -311,14 +311,16 @@
             <hr style="border: 2px solid black;">
             <h3 style="text-align: center;">Kiểm tra hàng chính hãng & hạn bảo hành</h3>
             <form action="/check-progress" method="post" class="">
-                <div class="row">
-                    <div class="col-11 col-md-11">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-10 col-md-10">
                         <input type="text" class="form-control" id="warranty-number" name="warranty-number" required
                             placeholder="Nhập mã bảo hành hoặc số điện thoại">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button type="submit" class="btn btn-danger">Tìm kiếm</button>
+                        </div>
+                        
                     </div>
-                    <div class="col-1 col-md-1 p-0">
-                        <button type="submit" class="btn btn-danger">Tìm kiếm</button>
-                    </div>
+    
                 </div>
             </form>
             <hr style="border: 2px solid black;">
