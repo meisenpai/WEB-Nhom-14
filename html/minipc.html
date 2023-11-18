@@ -10,6 +10,7 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="../js/checkthongtin.js"></script>
+    <script src="../js/locgia.js"></script>
     <style>
         .btn-outline-light {
 
@@ -323,6 +324,21 @@
                     <h3 class="fw-bold">MINI PC</h3>
                 </div>
             </div>
+
+        <div class="border border-2 p-3 rounded-2">
+          <h4 class="fw-bold">MỨC GIÁ</h4>
+          <div class="border border-2 p-3 rounded-2">
+            <div>
+                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('duoi10k')">Dưới 10tr</button>
+                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('10k-20k')">10tr-20tr</button>
+                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('20k-30k')">20tr-30tr</button>
+                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('30k-40k')">30tr-40tr</button>
+                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('40k-50k')">40tr-50tr</button>
+                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('all')">Tất cả</button>
+              </div>
+          </div>
+        </div>
+
             <hr style="border: 2px solid black;">
             <div class="page" id="page1">
                 <div class="row">
