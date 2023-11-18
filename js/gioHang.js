@@ -3,6 +3,7 @@ $(document).ready(function () {
 
     if (cart.length === 0) {
         $('#cartItems').append('<p style="text-align: center; font-weight: bolder; font-size: 40px;">Chưa có gì trong này cả! Hãy làm đầy giỏ hàng nào</p>');
+        $('#btnThanhToan').hide();
     } else {
         function calculateTotal() {
             var total = 0;
@@ -110,7 +111,7 @@ $(document).ready(function () {
         $('#successMessage').removeClass('hidden');
         setTimeout(function () {
             $('#successMessage').addClass('hidden');
-        }, 1000);
+        }, 2000);
         $('#paymentModal').modal('hide');
 
     });
