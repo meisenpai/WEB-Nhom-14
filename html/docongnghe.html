@@ -9,32 +9,18 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/checkthongtin.js"></script>
-    <style>
-        .btn-outline-light {
-
-            /* Ẩn nút icon menu trên màn hình nhỏ */
-            @media (max-width: 992px) {
-                display: none;
-            }
-        }
-
-        #page1 {
-            display: flex;
-        }
-
-        #page2,
-        #page3 {
-            display: none;
-        }
-    </style>
+    <script src="../js/pageNumber2.js"></script>
+    
+    <link rel="stylesheet" href="../css/page.css">
 
 </head>
 
 <body>
     <div class="container bg-light">
         <header>
-
+            <div id="message" class="hidden"></div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <a href="../index.html" class="nav-link me-4">
@@ -66,7 +52,7 @@
                             </li>
                             <li class="nav-item me-5">
                                 <button type="button" class="button-cart">
-                                    <a href="#" class="nav-link fw-bold text-white"> Giỏ Hàng <i
+                                    <a href="giohang.html" class="nav-link fw-bold text-white"> Giỏ Hàng <i
                                             class="bi bi-cart3"></i></a>
                                 </button>
                             </li>
@@ -335,7 +321,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -357,7 +343,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -379,7 +365,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -401,7 +387,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -423,7 +409,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -445,7 +431,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -467,7 +453,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -489,7 +475,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -516,7 +502,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -538,7 +524,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -560,7 +546,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -582,7 +568,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -605,7 +591,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -627,7 +613,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -649,7 +635,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -671,7 +657,7 @@
                                 </p>
                                 <div class="button-container">
                                     <button type="button" class="btn btn-primary">Đặt hàng</button>
-                                    <button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <button type="button" class="btn btn-light addToCart"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
                                             viewBox="0 0 16 16">
                                             <path
@@ -806,47 +792,8 @@
             </div>
         </div>
     </footer>
-    <script>
-        //tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-        //các nút chuyển trang
-        var currentPage = 1;
-
-        // Khi trang được tải, đặt trang đầu tiên là trang active
-        window.onload = function () {
-            showPage(currentPage);
-        };
-
-        function showPage(pageNumber) {
-            document.getElementById('page' + currentPage).style.display = 'none';
-            document.getElementById('page' + pageNumber).style.display = 'block';
-
-            // Thay đổi trang active
-            document.querySelector('.pagination .page-item.active').classList.remove('active');
-            document.querySelector('.pagination .page-item:nth-child(' + (pageNumber + 1) + ')').classList.add('active');
-
-            currentPage = pageNumber;
-            document.getElementById('prevPage').style.display = (currentPage === 1) ? 'none' : 'block';
-            document.getElementById('nextPage').style.display = (currentPage === 3) ? 'none' : 'block';
-        }
-
-        document.getElementById('nextPage').addEventListener('click', function () {
-            if (currentPage < 3) {
-                showPage(currentPage + 1);
-            }
-        });
-
-        document.getElementById('prevPage').addEventListener('click', function () {
-            if (currentPage > 1) {
-                showPage(currentPage - 1);
-            }
-        });
-
-
-    </script>
+    <script src="../js/tooltips.js"></script>
+    <script src="../js/themVaoGioHang.js"></script>
 </body>
 
 </html>

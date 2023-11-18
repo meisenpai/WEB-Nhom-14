@@ -235,13 +235,13 @@
 
         </header>
         <!-- GioHang.html -->
-        <section>
+        <section class="mt-5">
             <div id="cartItems" class="row">
                 <!-- Nơi hiển thị sản phẩm trong giỏ hàng -->
             </div>
             <div class="row mb-3">
                 <div class="col-8 text-end">
-                    <h5 class="fw-bold">Tổng cộng:</h5>
+                    <h5 class="fw-bold"></h5>
                 </div>
                 <div class="col-4">
                     <h5 class="fw-bold"></h5>
@@ -353,44 +353,8 @@
                 </div>
             </div>
         </footer>
-        <script>
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl)
-            })
-            $(document).ready(function () {
-                var cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-                cart.forEach(function (product) {
-                    var productElement = '<div class="row mb-3">' +
-                        '<div class="col-2">' +
-                        '<img src="' + product.image + '" alt="' + product.name + '" class="w-100 rounded-2">' +
-                        '</div>' +
-                        '<div class="col-4">' +
-                        '<h5 class="fw-bold">' + product.name + '</h5>' +
-                        '<p>' + product.price + '</p>' +
-                        '<p>Quantity: <input type="number" value="' + product.quantity + '" min="1"></p>' +
-                        '</div>' +
-                        '<div class="col-2">' +
-                        '<button class="btn btn-danger">Remove</button>' +
-                        '</div>' +
-                        '</div>';
-
-                    $('section').prepend(productElement);
-                });
-
-                $(document).on('click', '.btn-danger', function () {
-                    var productName = $(this).parent().parent().find('h5').text();
-                    var cart = JSON.parse(localStorage.getItem('cart')) || [];
-                    cart = cart.filter(function (product) {
-                        return product.name !== productName;
-                    });
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    $(this).parent().parent().remove();
-                });
-            });
-
-        </script>
+        <script src="../js/tooltips.js"></script>
+       <script src="../js/gioHang.js"></script>
 </body>
 
 </html>

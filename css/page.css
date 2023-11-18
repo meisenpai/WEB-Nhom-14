@@ -1,0 +1,35 @@
+.btn-outline-light {
+
+    /* Ẩn nút icon menu trên màn hình nhỏ */
+    @media (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  #page1 {
+    display: flex;
+  }
+
+  #page2,
+  #page3 {
+    display: none;
+  }
+
+  #message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #4CAF50;
+    /* green */
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    font-size: large;
+    border-radius: 20px;
+  }
+
+  .hidden {
+    display: none;
+  }

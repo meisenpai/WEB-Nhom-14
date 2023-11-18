@@ -1,1956 +1,1284 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LAPTOPWORLD</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/checkthongtin.js"></script>
-    <script src="../js/locgia.js"></script>
-    <style>
-      .btn-outline-light {
-        /* Ẩn nút icon menu trên màn hình nhỏ */
-        @media (max-width: 992px) {
-          display: none;
-        }
-      }
 
-      #page1 {
-        display: flex;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAPTOPWORLD</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/checkthongtin.js"></script>
+  <script src="../js/locgia.js"></script>
+  <script src="../js/pageNumber.js"></script>
+ <link rel="stylesheet" href="../css/page.css">
 
-      #page2,
-      #page3 {
-        display: none;
-      }
-    </style>
+</head>
 
-  </head>
+<body>
+  <div class="container bg-light">
+    <header>
+      <div id="message" class="hidden"></div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a href="../index.html" class="nav-link me-4">
+            <h2 class="fw-bold">LAPTOPWORLD</h2>
+          </a>
+          <button class="btn btn-outline-light me-4" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-  <body>
-    <div class="container bg-light">
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <a href="../index.html" class="nav-link me-4">
-              <h2 class="fw-bold">LAPTOPWORLD</h2>
-            </a>
-            <button
-              class="btn btn-outline-light me-4"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasWithBothOptions"
-              aria-controls="offcanvasWithBothOptions"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <form class="d-flex me-4 w-50">
-                <input
-                  class="form-control rounded-end-0"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-light rounded-start-0" type="submit">
-                  <i class="bi bi-search"></i>
-                </button>
-              </form>
-              <ul class="navbar-nav">
-                <li class="nav-item me-5">
-                  <button type="button" class="button-news">
-                    <a href="#" class="nav-link fw-bold text-white">Tin Tức</a>
-                  </button>
-                </li>
-                <li class="nav-item me-5">
-                  <button type="button" class="button-cart">
-                    <a href="giohang.html" class="nav-link fw-bold text-white">
-                      Giỏ Hàng <i class="bi bi-cart3"></i
-                    ></a>
-                  </button>
-                </li>
-                <li class="nav-item">
-                  <button type="button" class="button-login">
-                    <a
-                      href="#"
-                      class="nav-link fw-bold"
-                      data-bs-toggle="modal"
-                      data-bs-target="#loginModal"
-                    >
-                      Đăng Nhập <i class="bi bi-box-arrow-in-right"></i
-                    ></a>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Login Modal -->
-          <div
-            class="modal fade"
-            id="loginModal"
-            tabindex="-1"
-            aria-labelledby="loginModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <!-- Login Form -->
-                  <form>
-                    <div class="mb-3">
-                      <label for="loginUsername" class="form-label"
-                        >Tên đăng nhập</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="loginUsername"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="loginPassword" class="form-label"
-                        >Mật khẩu</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="loginPassword"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <a href="#">Quên mật khẩu?</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                      Đăng nhập
-                    </button>
-                  </form>
-                  <hr />
-                  <div class="mb-3">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      style="width: 49%"
-                    >
-                      Đăng nhập bằng Facebook
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      style="width: 49%"
-                    >
-                      Đăng nhập bằng Google
-                    </button>
-                  </div>
-                  <p>
-                    Nếu bạn chưa có tài khoản, hãy
-                    <a
-                      href="#"
-                      data-bs-dismiss="modal"
-                      data-bs-toggle="modal"
-                      data-bs-target="#registerModal"
-                      >đăng ký</a
-                    >.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Register Modal -->
-          <div
-            class="modal fade"
-            id="registerModal"
-            tabindex="-1"
-            aria-labelledby="registerModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="registerModalLabel">Đăng ký</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <!-- Register Form -->
-                  <form>
-                    <div class="mb-3">
-                      <label for="registerUsername" class="form-label"
-                        >Họ tên</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="registerFirstName"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="registerMail" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="registerMail"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="registerPhone" class="form-label"
-                        >Số điện thoại</label
-                      >
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="registerPhone"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="registerUsername" class="form-label"
-                        >Tên đăng nhập</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="registerUsername"
-                        required
-                      />
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="registerPassword" class="form-label"
-                        >Mật khẩu</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="registerPassword"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="registerrePassword" class="form-label"
-                        >Xác nhận mật khẩu</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="registerrePassword"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          name="agreeCheck"
-                          id="agreeCheck"
-                          value="option1"
-                          required
-                        />
-                        <label class="form-check-label" for="exampleRadios1">
-                          Tôi đã đọc và chấp nhận Điều khoản và Chính sách bảo
-                          mật
-                        </label>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                      Đăng ký
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <div
-          class="offcanvas offcanvas-start w-25"
-          data-bs-scroll="true"
-          tabindex="-1"
-          id="offcanvasWithBothOptions"
-          aria-labelledby="offcanvasWithBothOptionsLabel"
-        >
-          <div class="offcanvas-header">
-            <h3
-              class="offcanvas-title fw-bold"
-              id="offcanvasWithBothOptionsLabel"
-            >
-              <a href="index.html" class="nav-link">LAPTOPWORLD</a>
-            </h3>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <form class="d-flex me-5 mb-2 w-auto">
-              <input
-                class="form-control rounded-end-0"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="d-flex me-4 w-50">
+              <input class="form-control rounded-end-0" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-light rounded-start-0" type="submit">
                 <i class="bi bi-search"></i>
               </button>
             </form>
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <li class="nav-item me-5">
                 <button type="button" class="button-news">
                   <a href="#" class="nav-link fw-bold text-white">Tin Tức</a>
                 </button>
               </li>
-              <li class="nav-item mt-2">
+              <li class="nav-item me-5">
                 <button type="button" class="button-cart">
                   <a href="giohang.html" class="nav-link fw-bold text-white">
-                    Giỏ Hàng <i class="bi bi-cart3"></i
-                  ></a>
+                    Giỏ Hàng <i class="bi bi-cart3"></i></a>
                 </button>
               </li>
-              <li class="nav-item mt-2">
+              <li class="nav-item">
                 <button type="button" class="button-login">
-                  <a
-                    href="#"
-                    class="nav-link fw-bold"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                  >
-                    Đăng Nhập <i class="bi bi-box-arrow-in-right"></i
-                  ></a>
+                  <a href="#" class="nav-link fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Đăng Nhập <i class="bi bi-box-arrow-in-right"></i></a>
                 </button>
               </li>
             </ul>
-            <div class="row justify-content-center mt-5">
-              <div class="col-2">
-                <a
-                  href="https://www.facebook.com/atnuanh.76"
-                  class="text-primary"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Follow on Facebook"
-                >
-                  <i class="bi bi-facebook fs-4"></i>
-                </a>
-              </div>
-              <div class="col-2">
-                <a
-                  href="https://youtube.com/@atnuanh_76"
-                  class="text-danger"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Subscribe on YouTube"
-                >
-                  <i class="bi bi-youtube fs-4"></i>
-                </a>
-              </div>
-              <div class="col-2">
-                <a
-                  href="mailto:1tuananhtran1@gmail.com"
-                  class="text-danger"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Send an Email"
-                >
-                  <i class="bi bi-envelope-at fs-4"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <div class="col-12">
-              <p class="text-danger">
-                <i class="bi bi-c-circle"></i> Copyright belongs to group 14
-              </p>
-            </div>
-          </div>
-        </div>
-      </header>
-      <section>
-        <hr style="border: 2px solid black" />
-        <div
-          id="carouselExampleCaptions"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="../img/banner (1).jpg"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img src="../img/banner1.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="../img/banner3.jpg" class="d-block w-100" alt="..." />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-        <hr style="border: 2px solid black" />
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <h3 class="fw-bold">LỰA CHỌN CỦA BẠN?</h3>
-          </div>
-        </div>
-        <hr style="border: 2px solid black" />
-        <div class="row mb-3">
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold p-0 m-auto border-0 custom-card-1 w-100"
-            >
-              <a href="laptop.html">
-                <img src="../img/LAPTOP.png" alt="" class="w-100 rounded-2" />
-              </a>
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <a href="minipc.html">
-                <img src="../img/MINIPC.png" alt="" class="w-100 rounded-2" />
-              </a>
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <a href="linhkien.html">
-                <img src="../img/linhkien.png" alt="" class="w-100 rounded-2" />
-              </a>
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <a href="docongnghe.html">
-                <img
-                  src="../img/dôcngnghe.png"
-                  alt=""
-                  class="w-100 rounded-2"
-                />
-              </a>
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <a href="suachua.html">
-                <img src="../img/Suachua.png" alt="" class="w-100 rounded-2" />
-              </a>
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <a href="baohanh.html">
-                <img src="../img/baohanh.png" alt="" class="w-100 rounded-2" />
-              </a>
-            </button>
-          </div>
-        </div>
-        <hr style="border: 2px solid black" />
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <h3 class="fw-bold">THƯƠNG HIỆU</h3>
-          </div>
-        </div>
-        <hr style="border: 2px solid black" />
-        <div class="row mb-3">
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <img src="../img/acer.png" class="w-100 rounded-2" />
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <img src="../img/asis.png" class="w-100 rounded-2" />
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <img src="../img/dell.png" class="w-100 rounded-2" />
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <img src="../img/hp.png" class="w-100 rounded-2" />
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <img src="../img/lenovo.png" class="w-100 rounded-2" />
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="fw-bold border-0 p-0 custom-card-1 w-100"
-            >
-              <img src="../img/lg.png" class="w-100 rounded-2" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="border border-2 p-3 rounded-2">
-          <h4 class="fw-bold">MỨC GIÁ</h4>
-          <div class="border border-2 p-3 rounded-2">
-            <div>
-                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('duoi10k')">Dưới 10tr</button>
-                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('10k-20k')">10tr-20tr</button>
-                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('20k-30k')">20tr-30tr</button>
-                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('30k-40k')">30tr-40tr</button>
-                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('40k-50k')">40tr-50tr</button>
-                <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('all')">Tất cả</button>
-              </div>
           </div>
         </div>
 
-        <div class="mt-3">
-          <div class="dropdown">
-            <button
-              type="button"
-              class="btn btn-outline-dark btn_custom dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              CPU
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >Intel Core I3</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >Intel Core I5</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >Intel Core I7</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >Intel Core I9</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >Intel Xeon</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >AMD Ryzen</a
-                >
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              Bộ nhớ RAM
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#">8GB</a>
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#">16GB</a>
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#">32GB</a>
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#">64GB</a>
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              Ổ Cứng
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#">256GB</a>
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#">512GB</a>
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#">1TB</a>
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              Kích thước LCD
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >13 Inch</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >14 Inch</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >15.6 Inch</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >16 Inch</a
-                >
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              Khối Lượng
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >1 - 1.5kg</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >1.5 - 2kg</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >2 - 2.5kg</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >2.5 - 3kg</a
-                >
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              Độ phân giải
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >FHD+ (1920*1200)</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >FHD+ (1920*1080)</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >UHD+ (3840*2400)</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item custom-dropdown-item" href="#"
-                  >UHD+ (3840*2160)</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="page" id="page1">
-          <div class="row">
-            <div class="col-lg-3 col-md-6" id="product1">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/dell-precision-7560-laptoppro-cover-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Dell Precision 7560 Xeon / 32GB / 512GB / UHD / Quadro RTX
-                    A4000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>38.500.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-            </div>
-            <div class="col-lg-3 col-md-6" id="product2">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/dell-latitude-7430-laptoppro-1-600x600.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Dell Latitude 7430 i5 1235U / 16GB / 256GB / FHD / Intel
-                    Iris Xe
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>19.500.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                        id="addToCart"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+              <div class="modal-body">
+                <!-- Login Form -->
+                <form>
+                  <div class="mb-3">
+                    <label for="loginUsername" class="form-label">Tên đăng nhập</label>
+                    <input type="text" class="form-control" id="loginUsername" required />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6" id="product3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/dell-inspiron-5425-laptoppro-2-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Dell Inspiron 5425 Ryzen™ 5 5625U / 16GB / 256GB / FHD Touch
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>12.900.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="loginPassword" required />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6" id="product4">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/dell-precision-7670-laptoppro-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Dell Precision 7670 i7 12850HX / 32GB CAMM / 1TB / FHD /
-                    Quadro RTX A3000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+                  <div class="mb-3">
+                    <a href="#">Quên mật khẩu?</a>
                   </div>
+                  <button type="submit" class="btn btn-primary">
+                    Đăng nhập
+                  </button>
+                </form>
+                <hr />
+                <div class="mb-3">
+                  <button type="button" class="btn btn-primary" style="width: 49%">
+                    Đăng nhập bằng Facebook
+                  </button>
+                  <button type="button" class="btn btn-danger" style="width: 49%">
+                    Đăng nhập bằng Google
+                  </button>
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6" id="product5">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/hp-zbook-studio-g9-laptoppro-7-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    HP ZBook Studio G10 i9 13900H / 32GB / 1TB / 4K OLED /
-                    Quadro RTX 3000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>55.900.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6" id="product6">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/hp-zbook-fury-17-g8-laptoppro-5-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    HP ZBook Fury 15 G8 Xeon / 64GB / 2TB / Dreamcolor / Quadro
-                    RTX A3000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>34.900.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6" id="product7">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/hp-zbook-15-g5-laptoppro-2222-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    HP ZBook 15 G5 Xeon / 32GB / 1TB / FHD / Quadro P2000 /
-                    15.6″ FHD (1920*1080) IPS
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>19.500.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6" id="product8">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/hp-elite-dragonfly-g1-laptoppro-i7-fhd-scaled-1-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    HP Elite Dragonfly G1 i7 8665U / 16GB / 512GB / FHD / Intel
-                    UHD
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+                <p>
+                  Nếu bạn chưa có tài khoản, hãy
+                  <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">đăng
+                    ký</a>.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="page" id="page2">
-          <div class="row">
-            <div class="col-sm-3" id="product9">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lenovo1.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Lenovo ThinkPad P53 i7 9850H / 32GB / 512GB / FHD / Quadro
-                    T1000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>18.500.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+        <!-- Register Modal -->
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Đăng ký</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lenovo2.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Lenovo ThinkPad P17 Gen 1 i7 10850H / 32GB / 512GB / FHD /
-                    Quadro T2000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>24.500.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+              <div class="modal-body">
+                <!-- Register Form -->
+                <form>
+                  <div class="mb-3">
+                    <label for="registerUsername" class="form-label">Họ tên</label>
+                    <input type="text" class="form-control" id="registerFirstName" required />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lenovo3.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Lenovo ThinkPad P15 G2 i9 11950H / 32GB / 512GB / FHD /
-                    Quadro RTX A2000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+                  <div class="mb-3">
+                    <label for="registerMail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="registerMail" required />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lenovo4.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Lenovo ThinkPad P15 G1 i7 10850H / 32GB / 512GB / FHD /
-                    Quadro T2000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+                  <div class="mb-3">
+                    <label for="registerPhone" class="form-label">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="registerPhone" required />
                   </div>
-                </div>
-              </div>
-            </div>
+                  <div class="mb-3">
+                    <label for="registerUsername" class="form-label">Tên đăng nhập</label>
+                    <input type="text" class="form-control" id="registerUsername" required />
+                  </div>
 
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lg1.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    LG UltraPC i7 1165G7 / 16GB / 512GB / FHD / 1650Ti 4GB
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>18.500.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+                  <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="registerPassword" required />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lg2.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>LG Gram 17Z95P i7 1195G7 / 32GB / 1TB / QHD+ (2021)</h5>
-                  <p style="color: red; font-size: large">
-                    <b>19.900.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+                  <div class="mb-3">
+                    <label for="registerrePassword" class="form-label">Xác nhận mật khẩu</label>
+                    <input type="password" class="form-control" id="registerrePassword" required />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lg3.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>LG Gram 17Z95Q i7 1260P / 32GB / 1TB / QHD+ (2022)</h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="agreeCheck" id="agreeCheck" value="option1"
+                        required />
+                      <label class="form-check-label" for="exampleRadios1">
+                        Tôi đã đọc và chấp nhận Điều khoản và Chính sách bảo
+                        mật
+                      </label>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/lg4.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>LG Gram 16T90Q 2in1 i7 1260P/ 16GB / 512GB / QHD+</h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+                  <button type="submit" class="btn btn-primary">
+                    Đăng ký
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="page" id="page3">
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/razer2.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Razer Blade 17 Pro 2020 i7 10875H / 16GB / 1TB / 4K 120Hz /
-                    RTX 2080 SUPER
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/razer1.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Razer Book 13 i7 1165G7 / 16GB / 256GB / FHD+ / Intel Iris
-                    Xe
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>21.000.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/razer3.png"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>Laptop Acer Swift 3 R5 5500U/16GB/512GB SSD/Win11</h5>
-                  <p style="color: red; font-size: large">
-                    <b>14.990.000₫</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/nitro1.jpeg"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Laptop Acer Nitro 5 Tiger Gaming AN515-58-52SP i5
-                    12500H/8GB/512GB
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>21.490.000₫</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/dell-precision-7760-laptoppro-2-1-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Dell Precision 7760 Xeon / 32GB / 512GB / UHD / Quadro RTX
-                    A4000
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>39.900.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/dell-precision-7730-laptoppro-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Dell Precision 7730 i7 8850H / 32GB / 1TB / FHD / Quadro
-                    P5200
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>21.900.000VNĐ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/dell-latittude-9520-laptoppro-5-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Lenovo ThinkPad T14s Gen 2 1185G7 / 32GB / 1TB / FHD / Intel
-                    Iris Xe
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card custom-card">
-                <div class="card-body">
-                  <img
-                    src="../img/surface-pro-8-black-laptoppro-cover-768x768.webp"
-                    alt=""
-                    width="100%"
-                    height="auto"
-                  />
-                  <h5>
-                    Surface Pro 8 i7 1185G7 / 16GB / 256GB / QHD+ / 13”
-                    PixelSense™
-                  </h5>
-                  <p style="color: red; font-size: large">
-                    <b>Liên hệ</b>
-                  </p>
-                  <div class="button-container">
-                    <button type="button" class="btn btn-primary">
-                      Đặt hàng
-                    </button>
-                    <button type="button" class="btn btn-light">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-cart-plus"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"
-                        />
-                        <path
-                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      </nav>
+      <div class="offcanvas offcanvas-start w-25" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title fw-bold" id="offcanvasWithBothOptionsLabel">
+            <a href="index.html" class="nav-link">LAPTOPWORLD</a>
+          </h3>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="d-flex justify-content-center mt-4">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item" id="prevPage">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#" onclick="showPage(1)">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" onclick="showPage(2)">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" onclick="showPage(3)">3</a>
-              </li>
-              <li class="page-item" id="nextPage">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </section>
-      <hr style="border: 2px solid black" />
-    </div>
-    <footer class="bg-dark text-white p-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <h5>VĂN PHÒNG GIAO DỊCH</h5>
-            <ul class="list-menu ps-3">
-              <li class="li_menu">
-                <address>
-                  Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.Hồ Chí
-                  Minh
-                </address>
-              </li>
-              <li class="li_menu">
-                Thời gian làm việc: <br />
-                - Từ thứ 2 đến chủ nhật: 0h-24h
-                <br />
-                không có ngày nghỉ
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h5>VỀ CHÚNG TÔI</h5>
-
-            <p style="text-align: justify">
-              Chào mừng bạn đến với LaptopWorld - Nơi bạn tìm thấy sự kết hợp
-              hoàn hảo giữa công nghệ và phong cách!
-            </p>
-            <p style="text-align: justify">
-              Sứ mệnh của chúng tôi là mang đến cho bạn những sản phẩm và dịch
-              vụ tốt nhất, đáp ứng mọi nhu cầu về công nghệ thông tin của bạn và
-              nâng cao hiệu suất và phong cách sống.
-            </p>
-          </div>
-          <div class="col-md-3">
-            <h5>CHÍNH SÁCH BÁN HÀNG</h5>
-            <ul class="nav-item ps-3">
-              <li>Bảo mật và thanh toán</li>
-              <li>Vận chuyển và giao hàng</li>
-              <li>Hỗ trợ khách hàng</li>
-              <li>Bảo trì và sửa chữa sau khi hết bảo hành</li>
-              <li>Đổi/trả hàng</li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h5>THEO DÕI CHÚNG TÔI</h5>
-            <ul class="nav-item ps-1">
-              <li class="nav-link">
-                <a href="https://www.facebook.com/atnuanh.76/" class="nav-link">
-                  <i class="bi bi-facebook"></i> Trần Anh Tuấn
-                </a>
-              </li>
-              <li class="nav-link">
-                <a
-                  href="https://www.facebook.com/duykhanh.chau.35"
-                  class="nav-link"
-                >
-                  <i class="bi bi-facebook"></i> Châu Duy Khánh
-                </a>
-              </li>
-              <li class="nav-link">
-                <a
-                  href="https://www.facebook.com/profile.php?id=100024524241191"
-                  class="nav-link"
-                >
-                  <i class="bi bi-facebook"></i> Trường Vũ
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-md-3">
-            <h4>Thành viên nhóm</h4>
-            <p>Châu Duy Khánh_21069661</p>
-            <p>Trần Anh Tuấn_21069981</p>
-            <p>Trần Lê Trường Vũ_21069701</p>
-            <p>Lê Hoàng Nhớ_21080031</p>
-          </div>
-          <div class="col-md-9">
-            <h4>Nhận tin khuyến mãi</h4>
-            <form class="d-flex me-5 w-100">
-              <input
-                class="form-control rounded-end-0"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-light rounded-start-0" type="submit">
-                <i class="bi bi-search"></i>
+        <div class="offcanvas-body">
+          <form class="d-flex me-5 mb-2 w-auto">
+            <input class="form-control rounded-end-0" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-light rounded-start-0" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <button type="button" class="button-news">
+                <a href="#" class="nav-link fw-bold text-white">Tin Tức</a>
               </button>
-            </form>
+            </li>
+            <li class="nav-item mt-2">
+              <button type="button" class="button-cart">
+                <a href="giohang.html" class="nav-link fw-bold text-white">
+                  Giỏ Hàng <i class="bi bi-cart3"></i></a>
+              </button>
+            </li>
+            <li class="nav-item mt-2">
+              <button type="button" class="button-login">
+                <a href="#" class="nav-link fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">
+                  Đăng Nhập <i class="bi bi-box-arrow-in-right"></i></a>
+              </button>
+            </li>
+          </ul>
+          <div class="row justify-content-center mt-5">
+            <div class="col-2">
+              <a href="https://www.facebook.com/atnuanh.76" class="text-primary" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Follow on Facebook">
+                <i class="bi bi-facebook fs-4"></i>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="https://youtube.com/@atnuanh_76" class="text-danger" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Subscribe on YouTube">
+                <i class="bi bi-youtube fs-4"></i>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="mailto:1tuananhtran1@gmail.com" class="text-danger" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Send an Email">
+                <i class="bi bi-envelope-at fs-4"></i>
+              </a>
+            </div>
           </div>
         </div>
-        <hr />
-        <div class="row">
-          <div class="cod-md-6">
-            Bản quyền thuộc nhóm 14
-            <i class="fa-regular fa-copyright"></i>
+        <div class="row mt-5">
+          <div class="col-12">
+            <p class="text-danger">
+              <i class="bi bi-c-circle"></i> Copyright belongs to group 14
+            </p>
           </div>
-
-          <div class="cod-md-6">Trang chủ</div>
         </div>
       </div>
-    </footer>
-    <script>
-      //tooltips
-      var tooltipTriggerList = [].slice.call(
-        document.querySelectorAll('[data-bs-toggle="tooltip"]')
-      );
-      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-      });
-      //các nút chuyển trang
-      var currentPage = 1;
+    </header>
+    <section>
+      <hr style="border: 2px solid black" />
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../img/banner (1).jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/banner1.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="../img/banner3.jpg" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <hr style="border: 2px solid black" />
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h3 class="fw-bold">LỰA CHỌN CỦA BẠN?</h3>
+        </div>
+      </div>
+      <hr style="border: 2px solid black" />
+      <div class="row mb-3">
+        <div class="col-2">
+          <button type="button" class="fw-bold p-0 m-auto border-0 custom-card-1 w-100">
+            <a href="laptop.html">
+              <img src="../img/LAPTOP.png" alt="" class="w-100 rounded-2" />
+            </a>
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <a href="minipc.html">
+              <img src="../img/MINIPC.png" alt="" class="w-100 rounded-2" />
+            </a>
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <a href="linhkien.html">
+              <img src="../img/linhkien.png" alt="" class="w-100 rounded-2" />
+            </a>
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <a href="docongnghe.html">
+              <img src="../img/dôcngnghe.png" alt="" class="w-100 rounded-2" />
+            </a>
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <a href="suachua.html">
+              <img src="../img/Suachua.png" alt="" class="w-100 rounded-2" />
+            </a>
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <a href="baohanh.html">
+              <img src="../img/baohanh.png" alt="" class="w-100 rounded-2" />
+            </a>
+          </button>
+        </div>
+      </div>
+      <hr style="border: 2px solid black" />
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h3 class="fw-bold">THƯƠNG HIỆU</h3>
+        </div>
+      </div>
+      <hr style="border: 2px solid black" />
+      <div class="row mb-3">
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <img src="../img/acer.png" class="w-100 rounded-2" />
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <img src="../img/asis.png" class="w-100 rounded-2" />
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <img src="../img/dell.png" class="w-100 rounded-2" />
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <img src="../img/hp.png" class="w-100 rounded-2" />
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <img src="../img/lenovo.png" class="w-100 rounded-2" />
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="fw-bold border-0 p-0 custom-card-1 w-100">
+            <img src="../img/lg.png" class="w-100 rounded-2" />
+          </button>
+        </div>
+      </div>
+    </section>
 
-      // Khi trang được tải, đặt trang đầu tiên là trang active
-      window.onload = function () {
-        showPage(currentPage);
-      };
+    <section>
+      <div class="border border-2 p-3 rounded-2">
+        <h4 class="fw-bold">MỨC GIÁ</h4>
+        <div class="border border-2 p-3 rounded-2">
+          <div>
+            <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('duoi10k')">Dưới
+              10tr</button>
+            <button type="button" class="btn btn-outline-dark btn_custom"
+              onclick="filterProducts('10k-20k')">10tr-20tr</button>
+            <button type="button" class="btn btn-outline-dark btn_custom"
+              onclick="filterProducts('20k-30k')">20tr-30tr</button>
+            <button type="button" class="btn btn-outline-dark btn_custom"
+              onclick="filterProducts('30k-40k')">30tr-40tr</button>
+            <button type="button" class="btn btn-outline-dark btn_custom"
+              onclick="filterProducts('40k-50k')">40tr-50tr</button>
+            <button type="button" class="btn btn-outline-dark btn_custom" onclick="filterProducts('all')">Tất
+              cả</button>
+          </div>
+        </div>
+      </div>
 
-      function showPage(pageNumber) {
-        document.getElementById("page" + currentPage).style.display = "none";
-        document.getElementById("page" + pageNumber).style.display = "block";
+      <div class="mt-3">
+        <div class="dropdown">
+          <button type="button" class="btn btn-outline-dark btn_custom dropdown-toggle" data-bs-toggle="dropdown">
+            CPU
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">Intel Core I3</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">Intel Core I5</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">Intel Core I7</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">Intel Core I9</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">Intel Xeon</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">AMD Ryzen</a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
+            data-bs-toggle="dropdown">
+            Bộ nhớ RAM
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">8GB</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">16GB</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">32GB</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">64GB</a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
+            data-bs-toggle="dropdown">
+            Ổ Cứng
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">256GB</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">512GB</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">1TB</a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
+            data-bs-toggle="dropdown">
+            Kích thước LCD
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">13 Inch</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">14 Inch</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">15.6 Inch</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">16 Inch</a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
+            data-bs-toggle="dropdown">
+            Khối Lượng
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">1 - 1.5kg</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">1.5 - 2kg</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">2 - 2.5kg</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">2.5 - 3kg</a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-outline-dark btn_custom1 custom-dropdown-item dropdown-toggle"
+            data-bs-toggle="dropdown">
+            Độ phân giải
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">FHD+ (1920*1200)</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">FHD+ (1920*1080)</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">UHD+ (3840*2400)</a>
+            </li>
+            <li>
+              <a class="dropdown-item custom-dropdown-item" href="#">UHD+ (3840*2160)</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="page" id="page1">
+        <div class="row">
+          <div class="col-lg-3 col-md-6" id="product1">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/dell-precision-7560-laptoppro-cover-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Dell Precision 7560 Xeon / 32GB / 512GB / UHD / Quadro RTX
+                  A4000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>38.500.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" id="product2">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/dell-latitude-7430-laptoppro-1-600x600.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Dell Latitude 7430 i5 1235U / 16GB / 256GB / FHD / Intel
+                  Iris Xe
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>19.500.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" id="product3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/dell-inspiron-5425-laptoppro-2-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Dell Inspiron 5425 Ryzen™ 5 5625U / 16GB / 256GB / FHD Touch
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>12.900.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" id="product4">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/dell-precision-7670-laptoppro-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Dell Precision 7670 i7 12850HX / 32GB CAMM / 1TB / FHD /
+                  Quadro RTX A3000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" id="product5">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/hp-zbook-studio-g9-laptoppro-7-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  HP ZBook Studio G10 i9 13900H / 32GB / 1TB / 4K OLED /
+                  Quadro RTX 3000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>55.900.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" id="product6">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/hp-zbook-fury-17-g8-laptoppro-5-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  HP ZBook Fury 15 G8 Xeon / 64GB / 2TB / Dreamcolor / Quadro
+                  RTX A3000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>34.900.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" id="product7">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/hp-zbook-15-g5-laptoppro-2222-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  HP ZBook 15 G5 Xeon / 32GB / 1TB / FHD / Quadro P2000 /
+                  15.6″ FHD (1920*1080) IPS
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>19.500.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" id="product8">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/hp-elite-dragonfly-g1-laptoppro-i7-fhd-scaled-1-768x768.webp" alt="" width="100%"
+                  height="auto" />
+                <h5>
+                  HP Elite Dragonfly G1 i7 8665U / 16GB / 512GB / FHD / Intel
+                  UHD
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        // Thay đổi trang active
-        document
-          .querySelector(".pagination .page-item.active")
-          .classList.remove("active");
-        document
-          .querySelector(
-            ".pagination .page-item:nth-child(" + (pageNumber + 1) + ")"
-          )
-          .classList.add("active");
+      <div class="page" id="page2">
+        <div class="row">
+          <div class="col-sm-3" id="product9">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lenovo1.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Lenovo ThinkPad P53 i7 9850H / 32GB / 512GB / FHD / Quadro
+                  T1000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>18.500.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lenovo2.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Lenovo ThinkPad P17 Gen 1 i7 10850H / 32GB / 512GB / FHD /
+                  Quadro T2000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>24.500.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lenovo3.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Lenovo ThinkPad P15 G2 i9 11950H / 32GB / 512GB / FHD /
+                  Quadro RTX A2000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lenovo4.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Lenovo ThinkPad P15 G1 i7 10850H / 32GB / 512GB / FHD /
+                  Quadro T2000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        currentPage = pageNumber;
-        document.getElementById("prevPage").style.display =
-          currentPage === 1 ? "none" : "block";
-        document.getElementById("nextPage").style.display =
-          currentPage === 3 ? "none" : "block";
-      }
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lg1.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  LG UltraPC i7 1165G7 / 16GB / 512GB / FHD / 1650Ti 4GB
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>18.500.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lg2.webp" alt="" width="100%" height="auto" />
+                <h5>LG Gram 17Z95P i7 1195G7 / 32GB / 1TB / QHD+ (2021)</h5>
+                <p style="color: red; font-size: large">
+                  <b>19.900.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lg3.webp" alt="" width="100%" height="auto" />
+                <h5>LG Gram 17Z95Q i7 1260P / 32GB / 1TB / QHD+ (2022)</h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/lg4.webp" alt="" width="100%" height="auto" />
+                <h5>LG Gram 16T90Q 2in1 i7 1260P/ 16GB / 512GB / QHD+</h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      document
-        .getElementById("nextPage")
-        .addEventListener("click", function () {
-          if (currentPage < 3) {
-            showPage(currentPage + 1);
-          }
-        });
+      <div class="page" id="page3">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/razer2.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Razer Blade 17 Pro 2020 i7 10875H / 16GB / 1TB / 4K 120Hz /
+                  RTX 2080 SUPER
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/razer1.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Razer Book 13 i7 1165G7 / 16GB / 256GB / FHD+ / Intel Iris
+                  Xe
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>21.000.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/razer3.png" alt="" width="100%" height="auto" />
+                <h5>Laptop Acer Swift 3 R5 5500U/16GB/512GB SSD/Win11</h5>
+                <p style="color: red; font-size: large">
+                  <b>14.990.000₫</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/nitro1.jpeg" alt="" width="100%" height="auto" />
+                <h5>
+                  Laptop Acer Nitro 5 Tiger Gaming AN515-58-52SP i5
+                  12500H/8GB/512GB
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>21.490.000₫</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      document
-        .getElementById("prevPage")
-        .addEventListener("click", function () {
-          if (currentPage > 1) {
-            showPage(currentPage - 1);
-          }
-        });
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/dell-precision-7760-laptoppro-2-1-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Dell Precision 7760 Xeon / 32GB / 512GB / UHD / Quadro RTX
+                  A4000
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>39.900.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/dell-precision-7730-laptoppro-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Dell Precision 7730 i7 8850H / 32GB / 1TB / FHD / Quadro
+                  P5200
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>21.900.000VNĐ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/dell-latittude-9520-laptoppro-5-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Lenovo ThinkPad T14s Gen 2 1185G7 / 32GB / 1TB / FHD / Intel
+                  Iris Xe
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card">
+              <div class="card-body">
+                <img src="../img/surface-pro-8-black-laptoppro-cover-768x768.webp" alt="" width="100%" height="auto" />
+                <h5>
+                  Surface Pro 8 i7 1185G7 / 16GB / 256GB / QHD+ / 13”
+                  PixelSense™
+                </h5>
+                <p style="color: red; font-size: large">
+                  <b>Liên hệ</b>
+                </p>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary">
+                    Đặt hàng
+                  </button>
+                  <button type="button" class="btn btn-light addToCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path
+                        d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item" id="prevPage">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#" onclick="showPage(1)">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" onclick="showPage(2)">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" onclick="showPage(3)">3</a>
+            </li>
+            <li class="page-item" id="nextPage">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <hr style="border: 2px solid black" />
+  </div>
+  <footer class="bg-dark text-white p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>VĂN PHÒNG GIAO DỊCH</h5>
+          <ul class="list-menu ps-3">
+            <li class="li_menu">
+              <address>
+                Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.Hồ Chí
+                Minh
+              </address>
+            </li>
+            <li class="li_menu">
+              Thời gian làm việc: <br />
+              - Từ thứ 2 đến chủ nhật: 0h-24h
+              <br />
+              không có ngày nghỉ
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>VỀ CHÚNG TÔI</h5>
 
-      $(document).ready(function () {
-        $("#addToCart").click(function () {
-          var productImage = $(this).parent().parent().find("img").attr("src");
-          var productName = $(this).parent().parent().find("h5").text();
-          var productPrice = $(this).parent().parent().find("p").text();
+          <p style="text-align: justify">
+            Chào mừng bạn đến với LaptopWorld - Nơi bạn tìm thấy sự kết hợp
+            hoàn hảo giữa công nghệ và phong cách!
+          </p>
+          <p style="text-align: justify">
+            Sứ mệnh của chúng tôi là mang đến cho bạn những sản phẩm và dịch
+            vụ tốt nhất, đáp ứng mọi nhu cầu về công nghệ thông tin của bạn và
+            nâng cao hiệu suất và phong cách sống.
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h5>CHÍNH SÁCH BÁN HÀNG</h5>
+          <ul class="nav-item ps-3">
+            <li>Bảo mật và thanh toán</li>
+            <li>Vận chuyển và giao hàng</li>
+            <li>Hỗ trợ khách hàng</li>
+            <li>Bảo trì và sửa chữa sau khi hết bảo hành</li>
+            <li>Đổi/trả hàng</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>THEO DÕI CHÚNG TÔI</h5>
+          <ul class="nav-item ps-1">
+            <li class="nav-link">
+              <a href="https://www.facebook.com/atnuanh.76/" class="nav-link">
+                <i class="bi bi-facebook"></i> Trần Anh Tuấn
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="https://www.facebook.com/duykhanh.chau.35" class="nav-link">
+                <i class="bi bi-facebook"></i> Châu Duy Khánh
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="https://www.facebook.com/profile.php?id=100024524241191" class="nav-link">
+                <i class="bi bi-facebook"></i> Trường Vũ
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Thành viên nhóm</h4>
+          <p>Châu Duy Khánh_21069661</p>
+          <p>Trần Anh Tuấn_21069981</p>
+          <p>Trần Lê Trường Vũ_21069701</p>
+          <p>Lê Hoàng Nhớ_21080031</p>
+        </div>
+        <div class="col-md-9">
+          <h4>Nhận tin khuyến mãi</h4>
+          <form class="d-flex me-5 w-100">
+            <input class="form-control rounded-end-0" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-light rounded-start-0" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="cod-md-6">
+          Bản quyền thuộc nhóm 14
+          <i class="fa-regular fa-copyright"></i>
+        </div>
 
-          var product = {
-            image: productImage,
-            name: productName,
-            price: productPrice,
-            quantity: 1,
-          };
-
-          var cart = JSON.parse(localStorage.getItem("cart")) || [];
-          cart.push(product);
-          localStorage.setItem("cart", JSON.stringify(cart));
-        });
-      });
-    </script>
-  </body>
+        <div class="cod-md-6">Trang chủ</div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/tooltips.js"></script>
+  <script src="../js/themVaoGioHang.js"></script>
+</body>
 </html>
