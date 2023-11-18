@@ -1,85 +1,92 @@
-
 .custom-card {
-    transition: transform 0.3s;
-    /* Chỉnh thời gian transition */
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(3, 3, 3, 0.3);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  transition: transform 0.3s;
+  /* Chỉnh thời gian transition */
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(3, 3, 3, 0.3);
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.card-body {
+  flex: 1 0 auto;
+}
 .custom-card:hover {
-    transform: translateY(-15px);
-    /* Khi rê chuột vào, thẻ sẽ nhảy lên 10px */
+  transform: translateY(-15px);
+  /* Khi rê chuột vào, thẻ sẽ nhảy lên 10px */
 }
 
 .custom-card-1 {
-    transition: transform 0.3s;
-    /* Chỉnh thời gian transition */
-
+  transition: transform 0.3s;
+  /* Chỉnh thời gian transition */
 }
 
 .custom-card-1:hover {
-    transform: translateY(-10px);
-    /* Khi rê chuột vào, thẻ sẽ nhảy lên 10px */
-    box-shadow: 0 4px 8px rgba(3, 3, 3, 0.3);
+  transform: translateY(-10px);
+  /* Khi rê chuột vào, thẻ sẽ nhảy lên 10px */
+  box-shadow: 0 4px 8px rgba(3, 3, 3, 0.3);
 }
-.button-news{
-    background-color: green;
-    border: none;
-    border-radius: 5px;
-    transition: transform 0.3s;
+.button-news {
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.3s;
 }
-.button-news:hover{
-    box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
+.button-news:hover {
+  box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
 }
-.button-cart{
-    background-color: orange;
-    border: none;
-    border-radius: 5px;
-    transition: transform 0.3s;
+.button-cart {
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.3s;
 }
-.button-cart:hover{
-    box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
+.button-cart:hover {
+  box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
 }
-.button-login{
-    background-color: red;
-    border: none;
-    border-radius: 5px;
-    transition: transform 0.3s;
+.button-login {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.3s;
 }
-.button-login:hover{
-    box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
+.button-login:hover {
+  box-shadow: 0 0 8px rgba(3, 3, 3, 0.3);
 }
 
 .btn-outline-light {
-
-    /* Ẩn nút icon menu trên màn hình nhỏ */
-    @media (max-width: 992px) {
-      display: none;
-    }
-  }
-
-  #page1 {
-    display: flex;
-  }
-
-  #page2,
-  #page3 {
+  /* Ẩn nút icon menu trên màn hình nhỏ */
+  @media (max-width: 992px) {
     display: none;
   }
+}
 
-  #message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #4CAF50;
-    /* green */
-    color: white;
-    text-align: center;
-    z-index: 1000;
-  }
+#page1 {
+  display: flex;
+}
 
-  .hidden {
-    display: none;
-  }
+#page2,
+#page3 {
+  display: none;
+}
+
+#message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #4caf50;
+  /* green */
+  color: white;
+  text-align: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
