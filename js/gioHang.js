@@ -12,7 +12,7 @@ $(document).ready(function () {
                 total += price * product.quantity;
             });
             total = total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-            $('.fw-bold').last().text('Tổng cộng: ' + total);
+            $('#tien').last().text('Tổng cộng: ' + total);
             $('#thanhTien').text(total);
         }
 
@@ -30,7 +30,6 @@ $(document).ready(function () {
                 '<button class="btn btn-danger remove btn-close"</button>' +
                 '</div>' +
                 '</div>';
-
             $('section').prepend(productElement);
         });
 
@@ -45,7 +44,9 @@ $(document).ready(function () {
             $(this).parent().parent().remove();
             calculateTotal();
             if (cart.length === 0) {
-                $('#cartItems').append('<p style="text-align: center; font-weight: bolder; font-size: 40px;">Chưa có gì trong này cả! Hãy làm đầy giỏ hàng nào</p>'); gi
+                $('#cartItems').append('<p style="text-align: center; font-weight: bolder; font-size: 40px;">Chưa có gì trong này cả! Hãy làm đầy giỏ hàng nào</p>');
+                $('#btnThanhToan').hide();
+                $('#tien').hide();
             }
         });
 
