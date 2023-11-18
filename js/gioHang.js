@@ -23,11 +23,11 @@ $(document).ready(function () {
                 '</div>' +
                 '<div class="col-4">' +
                 '<h5 class="fw-bold">' + product.name + '</h5>' +
-                '<p>' + product.price + '</p>' +
-                '<p>Số lượng: <input type="number" value="' + product.quantity + '" min="1"></p>' +
+                '<p style="font-weight: bolder;">' + product.price + '</p>' +
+                '<p style="font-weight: bolder;">Số lượng: <input style="border: none; width: 10%; font-weight: bolder;" type="number" value="' + product.quantity + '" min="1"></p>' +
                 '</div>' +
                 '<div class="col-2">' +
-                '<button class="btn btn-danger remove">xóa</button>' +
+                '<button class="btn btn-danger remove btn-close"</button>' +
                 '</div>' +
                 '</div>';
     
