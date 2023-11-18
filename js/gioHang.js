@@ -44,6 +44,9 @@ $(document).ready(function () {
             localStorage.setItem('cart', JSON.stringify(cart));
             $(this).parent().parent().remove();
             calculateTotal();
+            if (cart.length === 0) {
+                $('#cartItems').append('<p style="text-align: center; font-weight: bolder; font-size: 40px;">Chưa có gì trong này cả! Hãy làm đầy giỏ hàng nào</p>');gi
+            }
         });
     
         $(document).on('change', 'input[type=number]', function () {
