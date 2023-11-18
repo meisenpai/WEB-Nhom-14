@@ -1,0 +1,16 @@
+.btn-close.btn-close-right {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.td{
+    margin: 0 auto;
+}
+img{
+    width: 50%;
+    height: 50%;
+}
+.anh{
+    text-align: center;
+}
+
